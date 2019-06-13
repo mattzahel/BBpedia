@@ -1,11 +1,30 @@
 <template>
   <div>
-    <h1>This is CharacterList page</h1>
+    <h1>This is Characters page</h1>
   </div>
 </template>
 
 <script>
-export default {}
+import CharacterService from '@/services/CharacterService.js'
+
+export default {
+  name: 'CharacterList',
+  data() {
+    return {
+      characters: []
+    }
+  },
+  created() {
+    CharacterService.getCharacters()
+      .then(response => {
+        this.characters = response.data
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log(error.response)
+      })
+  }
+}
 </script>
 
 <style></style>
