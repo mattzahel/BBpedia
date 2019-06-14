@@ -1,8 +1,13 @@
 <template>
   <nav>
-    <v-toolbar app class="grey lighten-3">
+    <v-toolbar app class="grey lighten-4">
       <v-toolbar-title class="text-uppercase grey--text">
-        <img src="@/assets/logo.png" alt="breaking-bad-logo" height="40" />
+        <img
+          src="@/assets/logo.png"
+          alt="breaking-bad-logo"
+          height="40"
+          class="mt-2"
+        />
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -33,7 +38,8 @@
       app
       right
       width="250"
-      class="grey lighten-2"
+      class="grey lighten-4"
+      v-if="drawer"
     >
       <v-btn icon @click="drawer = !drawer">
         <v-icon>close</v-icon>
@@ -44,6 +50,7 @@
           :key="link.text"
           router
           :to="{ name: link.name }"
+          class="my-2"
         >
           <v-list-tile-action>
             <v-icon class="black--text">{{ link.icon }}</v-icon>
