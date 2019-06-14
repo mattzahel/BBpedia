@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-container>
-      <SearchInput></SearchInput>
+      <CharactersInput
+        @searchCharacter="updateSearch($event)"
+      ></CharactersInput>
 
       <v-layout row wrap>
         <v-flex
@@ -10,7 +12,7 @@
           md4
           lg3
           xl2
-          v-for="character in characters"
+          v-for="character in filteredCharacters"
           :key="character.char_id"
         >
           <v-card class="my-2 mx-1">
@@ -41,12 +43,12 @@
 
 <script>
 import CharacterService from '@/services/CharacterService.js'
-import SearchInput from '@/components/SearchInput'
+import CharactersInput from '@/components/CharactersInput'
 
 export default {
   name: 'CharacterList',
   components: {
-    SearchInput
+    CharactersInput
   },
   data() {
     return {
@@ -64,8 +66,13 @@ export default {
         console.log(error.response)
       })
   },
+  methods: {
+    updateSearch(search) {
+      this.search = search
+    }
+  },
   computed: {
-    filterCharacters() {
+    filteredCharacters() {
       return this.characters.filter(character => {
         return character.name.toLowerCase().includes(this.search.toLowerCase())
       })

@@ -4,7 +4,7 @@
     <v-text-field
       v-model="name"
       placeholder="e.q. Walter White"
-      v-on:input="$emit('characterInput', name)"
+      v-on:input="$emit('searchCharacter', name)"
     />
   </v-form>
 </template>
