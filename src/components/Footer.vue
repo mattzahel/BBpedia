@@ -1,10 +1,14 @@
 <template>
   <v-footer height="auto" color="primary lighten-1">
     <v-layout justify-center row wrap>
-      <v-btn v-for="link in links" :key="link.name" flat>
-        <a :href="link.url" class="white--text">{{ link.name }}</a>
-      </v-btn>
-
+      <v-btn
+        v-for="link in links"
+        :key="link.name"
+        flat
+        :href="link.url"
+        color="grey lighten-2"
+        >{{ link.name }}</v-btn
+      >
       <v-flex primary lighten-2 py-3 text-xs-center white--text xs12>
         &copy;2019 —
         <strong>BBpedia</strong>

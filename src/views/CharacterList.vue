@@ -15,26 +15,7 @@
           v-for="character in filteredCharacters"
           :key="character.char_id"
         >
-          <v-card class="my-2 mx-1">
-            <v-img
-              :src="character.img"
-              aspect-ratio="0.7"
-              alt="character-img"
-            ></v-img>
-
-            <v-card-title primary-title>
-              <div>
-                <h3 class="headline mb-0">{{ character.name }}</h3>
-                <div class="subheading">{{ character.nickname }}</div>
-              </div>
-            </v-card-title>
-
-            <v-card-actions>
-              <v-btn flat color="primary">
-                <v-icon left small>info</v-icon>Details
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+          <CharacterCard :character="character" />
         </v-flex>
       </v-layout>
     </v-container>
@@ -44,11 +25,13 @@
 <script>
 import CharacterService from '@/services/CharacterService.js'
 import CharactersInput from '@/components/CharactersInput'
+import CharacterCard from '@/components/CharacterCard'
 
 export default {
   name: 'CharacterList',
   components: {
-    CharactersInput
+    CharactersInput,
+    CharacterCard
   },
   data() {
     return {
@@ -60,7 +43,6 @@ export default {
     CharacterService.getCharacters()
       .then(response => {
         this.characters = response.data
-        console.log(response.data)
       })
       .catch(error => {
         console.log(error.response)
