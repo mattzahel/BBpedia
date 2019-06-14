@@ -20,12 +20,6 @@
           :to="{ name: link.name }"
           >{{ link.text }}</v-btn
         >
-        <v-btn flat color="grey">
-          <v-icon left small>code</v-icon>
-          <a href="https://github.com/mattzahel/BBpedia" class="grey--text"
-            >Github</a
-          >
-        </v-btn>
       </v-toolbar-items>
       <v-toolbar-side-icon
         @click="drawer = !drawer"
