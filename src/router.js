@@ -22,7 +22,7 @@ export default new Router({
       component: CharacterList
     },
     {
-      path: '/characters/:id',
+      path: '/characters/:name',
       name: 'characterDetails',
       component: CharacterDetails
     },

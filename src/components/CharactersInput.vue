@@ -1,5 +1,5 @@
 <template>
-  <v-form>
+  <v-form @submit.prevent>
     <h1>Search for character</h1>
     <v-text-field
       v-model="name"

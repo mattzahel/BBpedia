@@ -16,7 +16,7 @@
         router
         :to="{
           name: 'characterDetails',
-          params: { id: character.char_id }
+          params: { id: character.char_id, name: character.name }
         }"
         class="grey lighten-3"
       >
@@ -31,23 +31,6 @@ export default {
   props: {
     character: Object
   }
-  // data() {
-  //   return {
-  //     slug: ''
-  //   }
-  // },
-  // methods: {
-  //   createSlug(name) {
-  //     this.slug = name.replace(/\s+/g, '-').toLowerSpace()
-  //   }
-  // },
-  // computed: {
-  //   replaceSlug() {
-  //     let slug = this.createSlug(this.props.character.name)
-  //     console.log(slug)
-  //     return slug
-  //   }
-  // }
 }
 </script>
 
