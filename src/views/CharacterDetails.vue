@@ -2,10 +2,10 @@
   <v-container>
     <v-card flat>
       <v-layout row wrap>
-        <v-flex xs12 sm6 pa-2>
+        <v-flex xs12 sm6 xl4>
           <v-img :src="character.img"></v-img>
         </v-flex>
-        <v-flex xs12 sm6 pa-2>
+        <v-flex xs12 sm6 xl6 pa-2>
           <h1 class="display-1 text-xs-center text-sm-left pa-2">
             {{ character.name }}
           </h1>
@@ -13,7 +13,7 @@
             "{{ character.nickname }}"
           </h2>
           <v-list>
-            <v-list-tile>
+            <v-list-tile v-if="character.birthday != null">
               <v-list-tile-action>
                 <v-icon>cake</v-icon>
               </v-list-tile-action>
