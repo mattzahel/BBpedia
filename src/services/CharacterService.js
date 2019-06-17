@@ -15,5 +15,11 @@ export default {
   },
   getCharacter(id) {
     return apiClient.get('/characters/' + id)
+  },
+  getQuotes() {
+    return apiClient.get('/quotes')
+  },
+  getQuote(author) {
+    return apiClient.get('/quotes/author=' + author)
   }
 }

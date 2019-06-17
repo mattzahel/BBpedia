@@ -18,9 +18,7 @@
                 <v-icon>cake</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>{{
-                  character.birthday ? shortBirthdate : 'Unknown'
-                }}</v-list-tile-title>
+                <v-list-tile-title>{{ shortBirthdate }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
@@ -36,9 +34,9 @@
                 <v-icon>work</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>
-                  {{ character.occupation }}
-                </v-list-tile-title>
+                <v-list-tile-title>{{
+                  character.occupation
+                }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
@@ -46,9 +44,9 @@
                 <v-icon>local_movies</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title>{{
-                  character.appearance
-                }}</v-list-tile-title>
+                <v-list-tile-title>
+                  {{ character.appearance }}
+                </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
@@ -87,7 +85,11 @@ export default {
   },
   computed: {
     shortBirthdate() {
-      return this.character.birthday.slice(0, 10)
+      if (this.character.birthday) {
+        return this.character.birthday.slice(0, 10)
+      } else {
+        return 'Undefined'
+      }
     }
   }
 }
