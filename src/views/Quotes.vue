@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <searchInput @searchCharacter="updateSearch($event)">
+  <v-container transition="slide-x-transition">
+    <searchForm @searchCharacter="updateSearch($event)">
       <template v-slot:header>
         <h1>Search for quote</h1>
       </template>
@@ -18,32 +18,25 @@
           </v-flex>
         </v-layout>
       </template>
-    </searchInput>
+    </searchForm>
     <v-layout flex wrap>
       <v-flex xs12 my-2 v-for="item in filteredQuotes" :key="item.quote_id">
-        <v-card flat elevation="1">
-          <v-card-title>
-            <blockquote class="blockquote">{{ item.quote }}</blockquote>
-          </v-card-title>
-          <v-card-actions>
-            <p class="text-xs-right text-md-left w-100 mx-5 mb-3">
-              {{ item.author }}
-            </p>
-          </v-card-actions>
-        </v-card>
+        <QuoteCard :quote="item"></QuoteCard>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import searchInput from '@/components/searchInput'
 import CharacterService from '@/services/CharacterService.js'
+import searchForm from '@/components/searchForm'
+import QuoteCard from '@/components/QuoteCard'
 
 export default {
   name: 'Quotes',
   components: {
-    searchInput
+    searchForm,
+    QuoteCard
   },
   data() {
     return {

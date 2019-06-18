@@ -1,14 +1,14 @@
 <template>
   <div>
     <v-container>
-      <searchInput @searchCharacter="updateSearch($event)">
+      <searchForm @searchCharacter="updateSearch($event)">
         <template v-slot:header>
           <h1>Search for character</h1>
         </template>
         <template v-slot:input>
           <v-text-field v-model="search" placeholder="e.g. Walter White" />
         </template>
-      </searchInput>
+      </searchForm>
 
       <v-layout row wrap>
         <v-flex
@@ -29,13 +29,13 @@
 
 <script>
 import CharacterService from '@/services/CharacterService.js'
-import searchInput from '@/components/searchInput'
+import searchForm from '@/components/searchForm'
 import CharacterCard from '@/components/CharacterCard'
 
 export default {
   name: 'CharacterList',
   components: {
-    searchInput,
+    searchForm,
     CharacterCard
   },
   data() {
