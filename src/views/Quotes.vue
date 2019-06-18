@@ -12,7 +12,7 @@
           <v-flex xs12 md4>
             <v-select
               v-model="select"
-              :items="quotes.author"
+              :items="uniqueAuthors"
               label="Author"
             ></v-select>
           </v-flex>
@@ -20,7 +20,7 @@
       </template>
     </searchInput>
     <v-layout flex wrap>
-      <v-flex xs12 my-2 v-for="item in quotes" :key="item.quote_id">
+      <v-flex xs12 my-2 v-for="item in filteredQuotes" :key="item.quote_id">
         <v-card flat elevation="1">
           <v-card-title>
             <blockquote class="blockquote">{{ item.quote }}</blockquote>
@@ -41,6 +41,7 @@ import searchInput from '@/components/searchInput'
 import CharacterService from '@/services/CharacterService.js'
 
 export default {
+  name: 'Quotes',
   components: {
     searchInput
   },
@@ -51,10 +52,25 @@ export default {
       select: ''
     }
   },
+  computed: {
+    filteredQuotes() {
+      return this.quotes.filter(item => {
+        return (
+          item.quote.toLowerCase().includes(this.search.toLowerCase()) &&
+          item.author.toLowerCase().includes(this.select.toLowerCase())
+        )
+      })
+    },
+    uniqueAuthors() {
+      const authors = this.quotes.map(item => {
+        return item.author
+      })
+      return authors
+    }
+  },
   created() {
     CharacterService.getQuotes()
       .then(response => {
-        console.log(response.data)
         this.quotes = response.data
       })
       .catch(error => {
