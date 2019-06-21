@@ -24,6 +24,7 @@
       <v-toolbar-side-icon
         @click="drawer = !drawer"
         class="hidden-md-and-up"
+        aria-hidden="true"
       ></v-toolbar-side-icon>
     </v-toolbar>
 
@@ -35,7 +36,7 @@
       class="grey lighten-4"
       v-if="drawer"
     >
-      <v-btn icon @click="drawer = !drawer">
+      <v-btn icon @click="drawer = !drawer" aria-hidden="true">
         <v-icon>close</v-icon>
       </v-btn>
       <v-list>
@@ -49,9 +50,9 @@
           <v-list-tile-action>
             <v-icon class="black--text">{{ link.icon }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content class="title">
-            {{ link.text }}
-          </v-list-tile-content>
+          <v-list-tile-content class="title">{{
+            link.text
+          }}</v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
