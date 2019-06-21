@@ -28,7 +28,7 @@
       </v-layout>
     </div>
     <v-container>
-      <p class="subheading py-4 text-justify">
+      <p class="subheading pb-3 px-2 text-justify">
         <span class="font-weight-bold">Breaking Bad</span> is an American
         neo-Western crime drama television series created and produced by Vince
         Gilligan. The show originally aired on AMC for five seasons, from
@@ -43,7 +43,7 @@
         "breaking bad" which means to "raise hell" or turn to a life of crime.
       </p>
       <v-layout justify-space-around mt-4 flex wrap>
-        <v-flex xs12 md5 my-1>
+        <v-flex xs12 md5 my-2>
           <v-card class="text-xs-center">
             <h3 class="title py-3">Characters</h3>
             <p class="subheading mx-1">
@@ -59,7 +59,7 @@
             >
           </v-card>
         </v-flex>
-        <v-flex xs12 md5 my-1>
+        <v-flex xs12 md5 my-2>
           <v-card class="text-xs-center">
             <h3 class="title py-3">Quotes</h3>
             <p class="subheading mx-1">
