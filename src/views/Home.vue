@@ -21,14 +21,14 @@
       <v-img :src="require('@/assets/hero-bg.jpg')" alt="hero-image"></v-img>
       <v-layout align-center column justify-center py-3 px-2>
         <h1 class="headline mb-3">Breaking Bad Info App</h1>
-        <h2 class="title font-weight-thin">
+        <h2 class="title font-weight-thin text-xs-center">
           Learn more about your favorite characters and find their most famous
           quotes
         </h2>
       </v-layout>
     </div>
     <v-container>
-      <p class="subheading py-4">
+      <p class="subheading py-4 text-justify">
         <span class="font-weight-bold">Breaking Bad</span> is an American
         neo-Western crime drama television series created and produced by Vince
         Gilligan. The show originally aired on AMC for five seasons, from
@@ -46,19 +46,33 @@
         <v-flex xs12 md5 my-1>
           <v-card class="text-xs-center">
             <h3 class="title py-3">Characters</h3>
-            <p class="subheading">
+            <p class="subheading mx-1">
               Check out informations about every character
             </p>
-            <v-btn class="my-3">Characters</v-btn>
+            <v-btn
+              class="my-3"
+              router
+              :to="{
+                name: 'characters'
+              }"
+              >Characters</v-btn
+            >
           </v-card>
         </v-flex>
         <v-flex xs12 md5 my-1>
           <v-card class="text-xs-center">
             <h3 class="title py-3">Quotes</h3>
-            <p class="subheading">
+            <p class="subheading mx-1">
               Find your favorite quotes from Breaking Bad series
             </p>
-            <v-btn class="my-3">Quotes</v-btn>
+            <v-btn
+              class="my-3"
+              router
+              :to="{
+                name: 'quotes'
+              }"
+              >Quotes</v-btn
+            >
           </v-card>
         </v-flex>
       </v-layout>
@@ -71,4 +85,8 @@ export default {
   components: {}
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.text-justify {
+  text-align: justify;
+}
+</style>
