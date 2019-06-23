@@ -1,29 +1,10 @@
-# bb-info
+# BBpedia
+Breaking Bad app made for educational purposes
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologies/tools used
+- Vue
+- Vue Router
+- Vuetify
+- Axios + modularazing using services
+- [Breaking Bad Api](https://www.breakingbadapi.com/)
+- Progressive Web App
